@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Javascript</title>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <script>console.log("hello world")
+// 1 Write a function 3x that has two parameters and those parameters are used in a sentence that says "hello my name is NAME I am AGE years old", except NAME and AGE would be the parameters given.
+console.log('Hello my name is ','Mike', 'and i am ', '30.')
+
+// name = "Mike"
+// age = 30
+// let greeting = "Hello my name is " + name + " and i am " + age
+// console.log(greeting)
+
+tempLit = `${function(cat){return cat} ("Jojo")} is an animal`
+// arrow
+let firstFunc = (name,age) => "hello my name is " + name +
+"and I am " + age
+firstFunc("Mike", 30)
+
+// tradtional with template literal
+function secondFunc(name,age){
+    return `hello my name is ${name} and i am ${age}`
+}
+secondFunc("Mike", 30)
+
+let thirdFunc = function(name,age) {
+    console.log("Hello my name is", name, "and I am", age)
+}
+thirdFunc("Mike", 30)
+
+// 2 Write a function that has another function as a parameter, and inside the main function the parameter function is called after you print to the console "Main Function Executing".
+
+let doAfter = (param1) => {
+    return "This one called"
+}
+function mainFunction(callback){
+    console.log("Main Function Executing")
+    callback()
+}
+mainFunction(doAfter)
+mainFunction(() => console.log("I am here"))
+// ---------------------------
+
+function mainFunction(callback, secondParam){
+    console.log("Main Function Executing")
+    callback(secondParam)
+}
+mainFunction(myParam => console.log("My parent gave me"+myParam), "something bad")
+
+
+// 3 Write a function that will print to the console "Parent Function Called" and then returns a function that when is called will print to the console "Child Function Called" The child function cannot be declared outside of the main function. Follow steps bellow if you need a step by step way to do it.
+let aFunc = function() {
+    console.log("parent fucntion called")
+    return ()=> console.log("child function")
+}
+aFunc()
+let afuncCalled = aFunc()
+afuncCalled
+
+// let aFunc = () =>()=>console.log("super strange")
+// aFunc()()
+
+// let newFunc = () => {
+//     console.log("This will print to console.")
+//     var example = "or this prints"
+
+//     }
+// newFunc()
+// newFunc()()
+
+
+let myObj = {
+    aFunc: ()=>console.log('A function')
+}
+myObj.aFunc()
+myObj.bFunc = () => "Wow string"
+myObj.bFunc()
+// ----------------------------------------
+let name = "Jarjar"
+if (name == "Yoda"){
+    console.log("Take him to you i will")
+} else if (name == "Jarjar") {
+    console.log('Mesa jar jar binks')
+} else {
+    console.log('you are nobody')
+}
+// -----------------------------------
+let hero = "Yoda"
+// ternary way of doing it
+hero == "Yoda" ? console.log('a hero'):
+console.log('not a hero')
+
+// let isOn = false
+// let buttonText = isOn ? "turn off": "turn on"
+// isOn = true
+// buttonText()
+
+let hi = "Mike"
+if (hi == "Mike"){
+    console.log("Hello there")
+} else {
+    console.log("go away")
+}
+// --------------------------
+
+const str = 'Life, the universe and everything. answer: ';
+console.log(`$(str) $(str.length)`);
+// --------------------------
+
+const testFunc = myString => myString.length < 4 ? "too Short": myString.length > 12 ? "too long" : "just right"
+// -------------switch-------------
+let person = "Jar Jar";
+let quote;
+console.log(quote);
+switch(person){
+    case 'Yoda':
+        quote = 'war does not make one great';
+    case 'Jar Jar':
+        quote = 'how wooode';
+// break is important in switch statement
+        break;
+    default:
+        quote = 'no quote'
+}
+console.log(quote)
+// -----------while loop---------------
+let i = 0;
+while(i<10){
+    if(!(i % 2)){
+        console.log('I am on with the force')
+
+    }else {
+        console.log('the force is with me')
+    }
+    i++;
+}
+// -----------for loop---------------
+
+for(let i = 0; i < 10; i++){
+    console.log(`clone #514${i} : Clone #514${i} checking in for duty!`)
+}
+
+// 1 Write a function that accepts string as an argument and if the string is less than 4 charecters return one message, if it is greater than 12 return another message otherwise return a final message about being accepted.
+
+wordNumber = "hello"
+if (wordNumber.length < 4) {
+    console.log("too short")
+} else if (wordNumber.length > 12) {
+    console.log("too long")
+} else {
+    console.log("accepted")
+}
+//Write a function that accepts an argument named temperature. Have at least 6 ranges of tempature that represents a html valid color. Return the color based on the argument supplied when calling the function
+
+temperatureToday(70)
+            
+function temperatureToday(temperature) {
+    switch (temperature) {
+        case (temperature<10):
+            console.log('%c It is Cold', 'background: #222; color: #c4cbff');
+            break;
+        case (temperature>10 && temperature<30):
+            console.log('%c colder', 'background: #222; color: #c4dcff');
+            break;
+        case (temperature>30 && temperature<50):
+            console.log('%c not as cold', 'background: #222; color: #c4dcff');
+            break;
+        case (temperature>50 && temperature<70):
+            console.log('%c a slight chill', 'background: #222; color: #fff6c4');
+            break;
+        case (temperature>70 && temperature<90):
+            console.log('%c ideal weather', 'background: #222; color: #ffd2c4');
+            break;
+        case (temperature>90):
+            console.log('%c pretty hot at this point', 'background: #222; color: #ffc6c4');
+            break;
+        default:
+            console.log("Temperature is not in livable condition")
+    }
+}
+
+</script>
+
+</body>
+</html>
