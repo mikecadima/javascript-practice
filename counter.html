@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 20%;
+            margin: auto;
+        }
+        input, button{
+            display: inline-block;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <button id="subtract">-</button>
+    <input type="number" value="0">
+    <button id="add">+</button>
+</div>
+<script>
+let btnAdd = document.querySelector("#add")
+let btnSubract = document.querySelector("#subtract")
+let input = document.querySelector("input")
+
+btnAdd.addEventListener('click',() => {
+    input.value = parseInt(input.value)+1;
+});
+btnSubract.addEventListener('click',() => {
+    input.value = parseInt(input.value)-1;
+});
+
+</script>
+</body>
+</html>
